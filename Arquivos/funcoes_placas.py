@@ -3,7 +3,7 @@
 #Funções necessárias
 
 def chamar_menu():
-	escolha = input("Digite:\n<N> Para Nova placa\n<T> para Trocar a placa").upper()
+	escolha = input("Digite:\n<N> Para Nova placa\n<T> para Trocar a placa\n<E> para Encerrar").upper()
 	return escolha
 
 def placa_nova():
@@ -29,6 +29,5 @@ def troca_placa():
 def grava_placas(dia_hoje, placas_dia):
 	dict = [dia_hoje: placas_dia]
 	with open("placas.csv", "a") as plc:
-		for chave, valor in dict.itens():
-			plc.write(chave + ";" + valor + "\n")
+		plc.writeline(dict)
 	return "\nPlacas do dia", dia_hoje, "gravadas."
