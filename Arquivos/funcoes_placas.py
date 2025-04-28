@@ -7,12 +7,14 @@ def chamar_menu():
 	return escolha
 
 def placa_nova():
+	import random
+	pl = ""
 	for x in range(7):
 		print(x)
 		if x == 3 or x > 4:
 			c1 = str(int(random.random() * 10))
-			else:
-				c1 = chr(int((random.random() * 26) + 65))
+		else:
+			c1 = chr(int((random.random() * 26) + 65))
 		pl = pl + c1
 		placa = pl[0:3] + "-" + pl[3:]
 	return placa
@@ -27,7 +29,7 @@ def troca_placa():
 	return placa
 
 def grava_placas(dia_hoje, placas_dia):
-	dict = [dia_hoje: placas_dia]
+	dict = {dia_hoje: [placas_dia]}
 	with open("placas.csv", "a") as plc:
 		plc.writeline(dict)
 	return "\nPlacas do dia", dia_hoje, "gravadas."
