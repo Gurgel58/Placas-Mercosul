@@ -21,10 +21,10 @@ apenas de um script, dificultando a leitura)
 
 ### ToDo:
 
-:arrow_forward: Completar o código de gravação do arquivo CSV.
-
-:arrow_forward: Criar trecho para verificar se a placa criada já existe.
+:arrow_forward: ~~Completar o código de gravação do arquivo CSV.~~ - Feito!
 
 :arrow_forward: Desenvolver Interface Gráfica (customtkinter).
+
+:arrow_forward: Criar trecho para verificar se a placa criada já existe.
 
 :arrow_forward: Testes de adequação
