@@ -10,10 +10,11 @@ de acordo com a **Resolução Contran 969/2022 Anexo I**, no formato utilizado n
 ### Como? 
 
 :arrow_forward: Script dividido em duas partes onde a primeira parte é responsãvel por solicitar a ação a ser
-tomada e apresentar os resultados.
+     tomada e apresentar os resultados. Essa parte também é responsável por verificar a existência do arquivo
+     **placas.csv**, onde ficam armazenadas as placas geradas, a cada dia.
 
 :arrow_forward: A segunda parte é responsável pelas ações: **gerar** uma nova placa, **trocar** uma placa modelo
-antigo pelo novo modelo e **gravar** as placas geradas durante o dia em um arquivo **CSV**
+antigo pelo novo modelo e **gravar** as placas geradas durante o dia, no arquivo **placas.csv**
 
 (A primeira versão **(V.1.0)** não gravava as placas geradas separadas por dia e se utilizava 
 apenas de um script, dificultando a leitura)
@@ -21,10 +22,10 @@ apenas de um script, dificultando a leitura)
 
 ### ToDo:
 
-:arrow_forward: Completar o código de gravação do arquivo CSV.
-
-:arrow_forward: Criar trecho para verificar se a placa criada já existe.
+:arrow_forward: ~~Completar o código de gravação do arquivo CSV.~~ - Feito!
 
 :arrow_forward: Desenvolver Interface Gráfica (customtkinter).
+
+:arrow_forward: Criar trecho para verificar se a placa criada já existe.
 
 :arrow_forward: Testes de adequação
