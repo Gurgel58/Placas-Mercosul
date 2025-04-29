@@ -26,10 +26,13 @@ def troca_placa():
 	Pat1 = Pat[0:4]; Pat2 = Pat[5:]; Ptr = Pat[4]; Pat3 = troc.pop(Ptr)
 	pl = Pat1 + Pat3 + Pat2
 	placa = pl[0:3] + "-" + pl[3:]
-	return placa
+	return placa, Pat
 
 def grava_placas(dia_hoje, placas_dia):
-	dict = {dia_hoje: [placas_dia]}
+	dados = []
+	dados = str(dia_hoje) + placas_dia
+#	dict = {[str(dia_hoje)]: [placas_dia]}
+	print(dados)
 	with open("placas.csv", "a") as plc:
-		plc.writeline(dict)
+		plc.writelines(dados)
 	return "\nPlacas do dia", dia_hoje, "gravadas."

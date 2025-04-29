@@ -19,13 +19,14 @@ while opcao == "E" or opcao == "N" or opcao == "T":
         print("\nNova placa", placa, "gerada.")
         pl = pl + "," + placa
     elif opcao == "T":
-        placa = troca_placa()
+        placa, Pat = troca_placa()
+        print("\nPlaca", Pat, "alterada para", placa)
         pl = pl + "," + placa
     elif opcao == "E":
-        grava_placas
+        placas_dia = pl
+        grava_placas(dia_hoje, placas_dia)
         print("\nPrograma encerrado.")
         break
-    else:
-        opcao = chamar_menu()
+    opcao = chamar_menu()
         
 
