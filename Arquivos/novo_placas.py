@@ -1,4 +1,4 @@
-#Gerador de placas Mercosul
+#Gerador de placas Mercosul V.2.0
 #Conforme Resolução Contran 969/2022 Anexo I
 
 import csv
