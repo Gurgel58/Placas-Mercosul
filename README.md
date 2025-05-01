@@ -24,7 +24,7 @@ apenas de um script, dificultando a leitura)
 
 :arrow_forward: ~~Completar o código de gravação do arquivo CSV.~~ - Feito!
 
-:arrow_forward: Desenvolver Interface Gráfica (customtkinter).
+:arrow_forward: Desenvolver Interface Gráfica (customtkinter). - Iniciado
 
 :arrow_forward: Criar trecho para verificar se a placa criada já existe.
 
