@@ -6,6 +6,10 @@ import os
 import datetime
 from funcoes_placas import *
 
+required_libraries = ['tkinter', 'customtkinter']
+
+instalar_libs(required_libraries)
+
 if not os.path.exists("placas.csv"):
     tb1 = open(r"placas.csv", "w")
 pl = ""

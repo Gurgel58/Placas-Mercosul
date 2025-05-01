@@ -2,8 +2,17 @@
 #Conforme Resolução Contran 969/2022 Anexo I
 #Funções necessárias
 
+def instalar_libs(required_libraries):
+	import sys
+	import subprocess
+	for lib in required_libraries:
+		try:
+			__import__(lib)
+		except ImportError:
+			subprocess.check_call([sys.executable, '-m', 'pip', 'install', lib])
+
 def chamar_menu():
-	escolha = input("Digite:\n<N> Para Nova placa\n<T> para Trocar a placa\n<E> para Encerrar").upper()
+	escolha = input("Digite:\n<N> Para Nova placa\n<T> para Trocar a placa\n<E> para Encerrar: ").upper()
 	return escolha
 
 def placa_nova():
@@ -30,7 +39,7 @@ def troca_placa():
 
 def grava_placas(dia_hoje, placas_dia):
 	dados = []
-	dados = str(dia_hoje) + placas_dia
+	dados = str(dia_hoje) + placas_dia + "\n"
 #	dict = {[str(dia_hoje)]: [placas_dia]}
 	print(dados)
 	with open("placas.csv", "a") as plc:
