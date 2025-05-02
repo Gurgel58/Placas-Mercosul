@@ -28,4 +28,6 @@ apenas de um script, dificultando a leitura)
 
 :arrow_forward: Criar trecho para verificar se a placa criada já existe.
 
+▶️ Criar trecho para fazer busca por placa ou por placas criadas em uma determinada data.
+
 :arrow_forward: Testes de adequação
