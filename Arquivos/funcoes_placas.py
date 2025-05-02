@@ -19,7 +19,6 @@ def placa_nova():
 	import random
 	pl = ""
 	for x in range(7):
-		print(x)
 		if x == 3 or x > 4:
 			c1 = str(int(random.random() * 10))
 		else:
@@ -40,8 +39,6 @@ def troca_placa():
 def grava_placas(dia_hoje, placas_dia):
 	dados = []
 	dados = str(dia_hoje) + placas_dia + "\n"
-#	dict = {[str(dia_hoje)]: [placas_dia]}
-	print(dados)
 	with open("placas.csv", "a") as plc:
 		plc.writelines(dados)
 	return "\nPlacas do dia", dia_hoje, "gravadas."
