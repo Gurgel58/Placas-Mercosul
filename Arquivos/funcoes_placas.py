@@ -1,6 +1,7 @@
 #Gerador de Placas Padrão Mercosul V.2.0
 #Conforme Resolução Contran 969/2022 Anexo I
 #Funções necessárias
+import os
 
 def instalar_libs(required_libraries):
 	import sys
@@ -10,6 +11,15 @@ def instalar_libs(required_libraries):
 			__import__(lib)
 		except ImportError:
 			subprocess.check_call([sys.executable, '-m', 'pip', 'install', lib])
+
+# Função para limpar a tela a cada iteração.
+# A ser removida quando criada a interface gráfica
+
+def limpar_tela():
+  if os.name == "nt":  # Para Windows
+    os.system("cls")
+  else:  # Para Linux/macOS
+    os.system("clear")
 
 def chamar_menu():
 	escolha = input("Digite:\n<N> Para Nova placa\n<T> para Trocar a placa\n<E> para Encerrar: ").upper()

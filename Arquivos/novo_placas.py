@@ -6,15 +6,26 @@ import os
 import datetime
 from funcoes_placas import *
 
+# Verifica se as libs necessárias estão instaladas. Instala as libs, se não estiverem.
 required_libraries = ['tkinter', 'customtkinter']
-
 instalar_libs(required_libraries)
 
+# Verifica se o arquivo de placas existe. Cria o arquivo, se não existir.
 if not os.path.exists("placas.csv"):
     tb1 = open(r"placas.csv", "w")
+
+# Variáveis iniciais necessárias
 pl = ""
 placas_dia = ()
 dia_hoje = datetime.date.today()
+
+"""Menu de opções:
+ <N> para gerar uma nova placa
+
+ <T> para trocar uma placa de padrão antigo pelo novo padrão
+
+ <E> para encerrar a geração de placas e gravar o arquivo com as placas geradas, no dia
+"""
 
 opcao = chamar_menu()
 while opcao == "E" or opcao == "N" or opcao == "T":
@@ -31,6 +42,7 @@ while opcao == "E" or opcao == "N" or opcao == "T":
         grava_placas(dia_hoje, placas_dia)
         print("\nPrograma encerrado.")
         break
+
     opcao = chamar_menu()
-        
+    limpar_tela() #Chama a função de limpar a tela - A ser removida.
 
