@@ -19,16 +19,8 @@ pl = ""
 placas_dia = ()
 dia_hoje = datetime.date.today()
 
-"""Menu de opções:
- <N> para gerar uma nova placa
-
- <T> para trocar uma placa de padrão antigo pelo novo padrão
-
- <E> para encerrar a geração de placas e gravar o arquivo com as placas geradas, no dia
-"""
-
 opcao = chamar_menu()
-while opcao == "E" or opcao == "N" or opcao == "T":
+while opcao == "E" or opcao == "N" or opcao == "T" or opcao == "A":
     if opcao == "N":
         placa = placa_nova()
         print("\nNova placa", placa, "gerada.")
@@ -42,7 +34,10 @@ while opcao == "E" or opcao == "N" or opcao == "T":
         grava_placas(dia_hoje, placas_dia)
         print("\nPrograma encerrado.")
         break
-
+    elif opcao == "A":
+        ajuda()
+        limpar_tela()
+        opcao = chamar_menu()
     opcao = chamar_menu()
     limpar_tela() #Chama a função de limpar a tela - A ser removida.
 
