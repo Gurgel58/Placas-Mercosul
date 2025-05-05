@@ -1,7 +1,8 @@
-#Gerador de Placas Padrão Mercosul V.2.0
+#Gerador de Placas Padrão Mercosul V.2.1
 #Conforme Resolução Contran 969/2022 Anexo I
 #Funções necessárias
 import os
+
 
 def instalar_libs(required_libraries):
 	import sys
@@ -13,7 +14,6 @@ def instalar_libs(required_libraries):
 			subprocess.check_call([sys.executable, '-m', 'pip', 'install', lib])
 
 # Função para limpar a tela a cada iteração.
-# A ser removida quando criada a interface gráfica
 
 def limpar_tela():
 	if os.name == "nt":  # Para Windows
@@ -22,7 +22,8 @@ def limpar_tela():
 		os.system("clear")
 
 def chamar_menu():
-	escolha = input("Digite:\n<N> Para Nova placa\n<T> para Trocar a placa\n<E> para Encerrar\n<A> para Ajuda: ").upper()
+	print("\nGerador de Placas Mercosul")
+	escolha = input("Digite:\n<N> Para Nova placa\n<T> para Trocar a placa\n<D> busca as placas geradas em uma determinada Data\n<P> busca a data em que uma determinada Placa foi gerada\n<E> para gravar as placas geradas e Encerrar\n<A> para Ajuda: ").upper()
 	return escolha
 
 def placa_nova():
@@ -47,13 +48,84 @@ def troca_placa():
 	return placa, Pat
 
 def grava_placas(dia_hoje, placas_dia):
-	dados = []
-	dados = str(dia_hoje) + placas_dia + "\n"
-	with open("placas.csv", "a") as plc:
-		plc.writelines(dados)
-	return "\nPlacas do dia", dia_hoje, "gravadas."
+	import csv
+	dados = list()
+	dados_hoje = str(dia_hoje) + placas_dia
+	dados.append(dados_hoje)
+#	print(dados)
+	with open("placas.csv", "a+", newline="") as plc:
+		escrever = csv.writer(plc)
+		escrever.writerow(dados)
+#		plc.writelines(dados)
+#		plc.close()
+		print("\nPlacas do dia", dia_hoje, "gravadas.")
+	return
+
+def busca_placas():
+	import csv
+	data = input ("\nEntre com a data, no formato AAAA-MM-DD")
+	# Busca todas as placas criadas em uma determinada data
+	with open("placas.csv", "r", newline="") as plc:
+		lista = plc.readlines()
+		comp = len(lista)
+		resultado = ""
+		for linha in lista:
+			item_linha = linha.split(",")
+			if data == item_linha[0]:
+				for x in range(1,len(item_linha)):
+					resultado = resultado + item_linha[x] + ","
+		if resultado == "":
+			print("Nenhuma placa criada na data", data)
+		else:
+			print("Placas", resultado[:-2], "criadas em", data)
+		input("Pressione <Enter> para prosseguir.")
+	return
+
+def busca_data():
+	import csv
+#Busca a data em que uma determinada placa foi criada
+	placa_procurada = input("\nEntre com a placa selecionada, no formato AAA-NANN: ").upper()
+
+	with open("placas.csv", "r", newline="") as plc:
+		leitor = csv.reader(plc)
+		data_encontrada = []
+
+		for linha in leitor:
+			for placa in range(len(linha)):
+				if linha[placa] == placa_procurada:
+					data_encontrada = linha[0]
+		if data_encontrada:
+			print(f"Placa {placa_procurada} criada em {data_encontrada}")
+		else:
+			print(f"Placa {placa_procurada} não localizada")
+	input("Pressione <Enter> para continuar")
+	return
 
 def ajuda():
-	print("Gerador de Placas no Padrão Mercosul\n\nEste programa gera placas de veículos automotores, no Padrão Mercosul,\nonde as placas tem o formato AAANANN - 3 letras, um dígito, uma letra, 3 digitos. \n\n\nMenu de opções:\n\n<N> para criar uma Nova placa,\n<T> para Trocar uma placa de modelo antigo - 3 letras e 4 dígitos - pelo modelo novo,\n<E> para Encerrar a criação de placas,\n<A> esta Ajuda.\n\nAo escolher a opção <E> uma nova linha será acrescentada ao	arquivo placas.csv, \ntendo a data atual como referência. A data estará no formato AAAA-MM-DD.")
-	input("\n\nTecle <ENTER> para prosseguir.")
+	print("""
+    Gerador de Placas no Padrão Mercosul
+
+    Este programa gera placas de veículos automotores
+    no Padrão Mercosul, onde as placas tem o formato AAA-NANN
+    (3 letras, um dígito, uma letra, 3 digitos).
+    As placas de modelo antigo tem o formato AAANNNN
+    (3 letras e 4 digitos).
+
+    Menu de opções:
+
+    <N> para criar uma Nova placa,
+    <T> para Trocar uma placa de modelo antigo pelo modelo novo,
+    <D> para listar todas as placas criadas em uma determinada Data.
+    <P> para informar a data em que uma determinada Placa foi criada.
+    <E> grava as placas geradas e Encerrar a criação de placas,
+    <A> esta Ajuda.
+
+    Ao escolher a opção <E> uma nova linha será acrescentada ao
+    arquivo placas.csv, tendo a data atual como referência.
+    Após a gravação o programa é encerrado.
+
+    Todas as datas estão no formato AAAA-MM-DD.
+
+    """)
+	input("Tecle <ENTER> para prosseguir.")
 	return
