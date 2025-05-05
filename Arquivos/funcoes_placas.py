@@ -1,4 +1,4 @@
-#Gerador de Placas Padrão Mercosul V.2.1
+#Gerador de Placas Padrão Mercosul V.2.2
 #Conforme Resolução Contran 969/2022 Anexo I
 #Funções necessárias
 import os
