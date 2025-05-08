@@ -1,3 +1,6 @@
+#Gerador de placas Mercosul V.2.3
+#Conforme Resolução Contran 969/2022 Anexo I
+
 import subprocess
 import shutil
 import os
