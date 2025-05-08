@@ -1,14 +1,10 @@
-#Gerador de placas Mercosul V.2.2
+#Gerador de placas Mercosul V.2.3
 #Conforme Resolução Contran 969/2022 Anexo I
 
 import csv
 import os
 import datetime
 from funcoes_placas import *
-
-# Verifica se as libs necessárias estão instaladas. Instala as libs, se não estiverem.
-required_libraries = ['tkinter', 'customtkinter']
-instalar_libs(required_libraries)
 
 # Verifica se o arquivo de placas existe. Cria o arquivo, se não existir.
 if not os.path.exists("placas.csv"):
@@ -34,6 +30,8 @@ while opcao in {"E", "N", "T", "A", "D", "P"}:
         pl = pl + "," + placa
     elif opcao == "D":
         busca_placas()
+    elif opcao == "P":
+        busca_data()
     elif opcao == "E":
 #        print(pl)
         placas_dia = pl

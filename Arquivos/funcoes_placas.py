@@ -1,17 +1,7 @@
-#Gerador de Placas Padrão Mercosul V.2.2
+#Gerador de Placas Padrão Mercosul V.2.3
 #Conforme Resolução Contran 969/2022 Anexo I
 #Funções necessárias
 import os
-
-
-def instalar_libs(required_libraries):
-	import sys
-	import subprocess
-	for lib in required_libraries:
-		try:
-			__import__(lib)
-		except ImportError:
-			subprocess.check_call([sys.executable, '-m', 'pip', 'install', lib])
 
 # Função para limpar a tela a cada iteração.
 
@@ -52,12 +42,9 @@ def grava_placas(dia_hoje, placas_dia):
 	dados = list()
 	dados_hoje = str(dia_hoje) + placas_dia
 	dados.append(dados_hoje)
-#	print(dados)
 	with open("placas.csv", "a+", newline="") as plc:
 		escrever = csv.writer(plc)
 		escrever.writerow(dados)
-#		plc.writelines(dados)
-#		plc.close()
 		print("\nPlacas do dia", dia_hoje, "gravadas.")
 	return
 
