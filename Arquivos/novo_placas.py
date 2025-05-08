@@ -46,3 +46,5 @@ while opcao in {"E", "N", "T", "A", "D", "P"}:
 
     limpar_tela() #Chama a função de limpar a tela
 
+#Script criado e desenvolvido por Alexandre Gurgel do Amaral
+#https://github.com/Gurgel58/Placas-Mercosul

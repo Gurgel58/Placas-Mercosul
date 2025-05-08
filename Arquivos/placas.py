@@ -18,3 +18,6 @@ else:
             break
     else:
         print("Nenhum terminal compatível encontrado.")
+
+#Script criado e desenvolvido por Alexandre Gurgel do Amaral
+#https://github.com/Gurgel58/Placas-Mercosul
