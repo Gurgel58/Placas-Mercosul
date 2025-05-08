@@ -46,14 +46,14 @@ Caso o arquivo não existe, o script cria o arquivo, na mesma pasta onde o scrip
 
 ### ToDo:
 
-:arrow_forward: ~~Completar o código de gravação do arquivo CSV.~~ - Feito
+:arrow_forward: ~~Completar o código de gravação do arquivo CSV.~~ - :white_check_mark:
 
 :arrow_forward: ~~Desenvolver Interface Gráfica (customtkinter).~~ - Execução será mantida em modo **CLI**
 
 :arrow_forward: Criar trecho para verificar se a placa criada já existe.
 
-▶️ ~~Criar trecho para fazer busca por placa ou por placas criadas em uma determinada data.~~ - Feito
+▶️ ~~Criar trecho para fazer busca por placa ou por placas criadas em uma determinada data.~~ - :white_check_mark:
 
-▶️ ~~Criar trecho para verificar o ambiente (**Linux** ou **Windows**) e abre a console de texto correspondente.~~ - Feito
+▶️ ~~Criar trecho para verificar o ambiente (**Linux** ou **Windows**) e abre a console correspondente.~~ - :white_check_mark:
 
 :arrow_forward: Testes de adequação no **Linux** e no **Windows**.
